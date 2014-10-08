@@ -15,7 +15,10 @@ $black: #130F30;
 	font-family: WYekan;
 	src: url("fonts/WebYekan.woff");
 }
-
+@font-face {
+	font-family: BKoodak;
+	src: url("fonts/BKoodak.woff");
+}
 
 * {
 	transition: all 0.3s ease-out;
@@ -67,4 +70,7 @@ ul {
 
 a {
 	text-decoration: none;
+}
+input {
+	outline: none;
 }

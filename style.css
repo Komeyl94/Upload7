@@ -1,5 +1,6 @@
 @font-face { font-family: WMitra; src: url("fonts/WebMitra.woff"); }
 @font-face { font-family: WYekan; src: url("fonts/WebYekan.woff"); }
+@font-face { font-family: BKoodak; src: url("fonts/BKoodak.woff"); }
 * { -webkit-transition: all 0.3s ease-out; transition: all 0.3s ease-out; }
 *:hover { -webkit-transition: all 0.1s ease-in; transition: all 0.1s ease-in; }
 
@@ -22,6 +23,8 @@ ul.inline-list li { display: inline-block; }
 
 a { text-decoration: none; }
 
+input { outline: none; }
+
 header { background: #2c4357; height: 100%; }
 header .logo { float: right; margin-left: 20px; }
 header #main-nav li { display: inline-block; width: 12%; height: 100px; border-left: 1px solid #435a6e; margin-top: 5px; margin-bottom: 5px; position: relative; }
@@ -29,12 +32,41 @@ header #main-nav li:first-child { border-right: 1px solid #435a6e; }
 header #main-nav li:first-child i { font-size: 1.8em; }
 header #main-nav li i { color: #8ca4b9; position: absolute; font-size: 1.5em; right: 45px; top: 16px; }
 header #main-nav li a { color: white; text-align: center; display: block; padding-top: 55px; }
+header #main-nav li:hover a { color: #71889D; }
+header #main-nav li:hover i { color: #fff; }
 header .header-bottom { background: #375269; border-bottom: 3px solid #24394c; border-top: 3px solid #24394c; height: 40px; }
 header .header-bottom .socials { float: left; margin-top: 5px; }
 header .header-bottom .socials i { width: 25px; height: 25px; padding-top: 5px; font-size: 0.9em; background: #61788c; border-radius: 50%; text-align: center; color: white; }
+header .header-bottom .socials i:hover { background: #2c4357; }
 header .header-bottom .ticker-container { float: right; }
 
-.top-ads { height: 80px; }
-.top-ads .wide-ad { float: right; margin-top: 10px; padding-left: 20px; }
-.top-ads .wide-ad img { width: 100%; height: 65px; border-radius: 3px; border: 3px solid #2c4357; }
-.top-ads .wide-ad:last-of-type { padding-left: 0; padding-right: 20px; }
+#top-ads { height: 80px; }
+#top-ads .wide-ad { float: right; margin-top: 10px; padding-left: 20px; }
+#top-ads .wide-ad img { width: 100%; height: 65px; border-radius: 3px; border: 3px solid #2c4357; }
+#top-ads .wide-ad:last-of-type { padding-left: 0; padding-right: 20px; }
+
+#signup-bar { margin: 20px auto; }
+#signup-bar .container { background: #e7f0f9; height: 50px; border-radius: 10px; padding: 0 0 0 5px; }
+#signup-bar .container span { background-image: url(img/button-bg1.png) !important; background-position: left top; background-repeat: no-repeat; border-radius: 60px 5px 5px; color: white; font-size: 1.7em; font-family: BKoodak; line-height: 1.1em; text-shadow: 1px 1px 0px #676767; position: relative; width: 10.33rem; margin-left: 13px; }
+#signup-bar .container p { text-align: center; color: #75307b; font-size: 1.5em; line-height: 1.28em; text-shadow: 1px 1px 0 #fff; }
+#signup-bar .container .register { background: #58af58; border: 3px solid #2e9f2e; border-radius: 8px; color: white; text-shadow: 1px 1px 0 #3d7a3d; text-align: center; font-size: 1.5em; font-family: BKoodak; line-height: 0.7em; margin: 5px 0 0 0; }
+#signup-bar .container .register:hover { background: #2e9f2e; border: 3px solid #58af58; }
+
+#body .main-container { background-image: url(img/main-bg.jpg); background-repeat: no-repeat; -webkit-background-size: cover; background-size: cover; float: right; width: 100%; }
+#body .main-container .top-text { color: #c03941; font-size: 2em; font-family: BKoodak; text-align: center; padding-top: 15px; width: 600px; margin: 0 auto; }
+#body .main-container .top-text i { color: #b83038; padding-left: 10px; }
+#body .main-container .filetypes { margin: 30px 45px 20px; float: right; width: 500px; }
+#body .main-container .filetypes ul { text-align: center; margin: 0 auto; width: 515px; }
+#body .main-container .filetypes ul li { float: right; display: inline-block; }
+#body .main-container .filetypes ul li i { font-size: 5em; padding-left: 25px; color: #a1b6c2; text-shadow: 2px 0 1px #fff; }
+#body .main-container .filetypes ul li:nth-of-type(even) { padding-top: 30px; }
+#body .main-container .filetypes ul .upload-via-link { background: #ced4d8; color: #2c4357; padding: 2px 12px; border-radius: 5px; float: left; margin: 30px 0 -10px 15px; }
+#body .main-container .form { text-align: center; width: 500px; margin: 0 45px 10px; height: 50px; float: right; position: relative; }
+#body .main-container .form input[type="file"] { z-index: 999; line-height: 0; font-size: 50px; position: absolute; opacity: 0; filter: alpha(opacity=0); -ms-filter: "alpha(opacity=0)"; cursor: pointer; margin: 0; padding: 0; left: 0; }
+#body .main-container .form i.fa-times-circle-o { content: "\f05c"; font-family: fontawesome; position: absolute; color: #c03941; right: -35px; top: 13px; font-size: 1.5em; cursor: pointer; visibility: hidden; opacity: 0; }
+#body .main-container .form:hover i.fa-times-circle-o { visibility: visible; opacity: 0.8; }
+#body .main-container .add-photo-btn { position: relative; overflow: hidden; cursor: pointer; text-align: center; background-color: #333; color: #fff; display: block; width: 100px; height: 50px; font-size: 1.12em; line-height: 2.5em; float: left; border-radius: 0 5px 5px 0; }
+#body .main-container input#path { float: left; height: 50px; border: 1px solid #ccc; border-right: none; border-radius: 5px 0 0 5px; width: 400px; text-align: left; font-family: sans-serif; font-size: 1em; padding: 0 10px; }
+#body .main-container .add-upload { width: 500px; margin: 20px 45px; float: right; }
+#body .main-container .add-upload i { color: #2c4357; padding-left: 5px; cursor: pointer; }
+#body .main-container .add-upload .add-upload-input { color: #2c4357; cursor: pointer; }
