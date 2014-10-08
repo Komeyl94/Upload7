@@ -1,0 +1,23 @@
+@font-face { font-family: WMitra; src: url("fonts/WebMitra.woff"); }
+@font-face { font-family: WYekan; src: url("fonts/WebYekan.woff"); }
+* { -webkit-transition: all 0.3s ease-out; transition: all 0.3s ease-out; }
+*:hover { -webkit-transition: all 0.1s ease-in; transition: all 0.1s ease-in; }
+
+.left { float: left; }
+
+.right { float: right; }
+
+.facebook:hover { background-color: #3C599F; }
+
+.twitter:hover { background-color: #62C8F8; }
+
+.google-plus:hover { background-color: #E9402E; }
+
+.rss:hover { background-color: #FAA21C; }
+
+html, body { background-color: #F9F9F9; padding: 0; margin: 0; font-family: WMitra; font-size: 18px; direction: rtl; font-align: right; width: 100%; color: #130f30; }
+
+ul { list-style: none; }
+ul.inline-list li { display: inline-block; }
+
+a { text-decoration: none; }
