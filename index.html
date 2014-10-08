@@ -4,15 +4,62 @@
 	<meta charset="UTF-8">
 	<title>آپلود7</title>
 
-	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>	
-	<script type="text/javascript" src="js/jquery.easing.min.js"></script>
-		
 	<link rel="stylesheet" href="style.css" media="all" />
 	<link rel="stylesheet" href="css/lemonade.css" media="all" />
 	<link rel="stylesheet" href="css/font-awesome.min.css" media="all" />
+	<link rel="stylesheet" href="css/ticker-style.css" />
+
+	<script type="text/javascript" src="js/jquery.ticker.js"></script>
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>	
+	<script type="text/javascript" src="js/jquery.easing.min.js"></script>
 		
+	<script type="text/javascript">
+	    $(function () {
+	        $('#js-news').ticker();
+	    });
+	</script>
 </head>
 <body>
-	
+	<header>
+		<div class="wrapper">
+			<div class="logo">
+				<a href="#"><img src="img/logo.png" alt="آپلود7"></a>
+			</div>
+			<nav id="main-nav">
+				<ul>
+					<li><i class="fa fa-home"></i><a href="#">صفحه نخست</a></li>
+					<li><i class="fa fa-briefcase"></i><a href="#">درباره ما</a></li>
+					<li><i class="fa fa-pencil-square-o"></i><a href="#">وبلاگ ما</a></li>
+					<li><i class="fa fa-envelope"></i><a href="#">تماس با ما</a></li>
+				</ul>
+			</nav>
+		</div>
+
+		<div class="header-bottom">
+			<div class="wrapper">
+				<div class="ticker-container">
+					<ul id="js-news" class="js-hidden">
+					    <li class="news-item"><a href="#">لورم ایپسوم متنی است آزمایشی برای قرار دادن در قسمت اخبار وبلاگ</a></li>
+					    <li class="news-item"><a href="#">لورم ایپسوم متنی است آزمایشی برای قرار دادن در قسمت اخبار وبلاگ</a></li>
+					    <li class="news-item"><a href="#">لورم ایپسوم متنی است آزمایشی برای قرار دادن در قسمت اخبار وبلاگ</a></li>
+					    <li class="news-item"><a href="#">لورم ایپسوم متنی است آزمایشی برای قرار دادن در قسمت اخبار وبلاگ</a></li>
+					</ul>
+				</div>
+				<div class="socials">
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-google-plus"></i></a>
+				</div>
+			</div>
+		</div>
+	</header>
+	<section class="top-ads">
+		<div class="wrapper">
+			<div class="frame">
+				<div class="wide-ad bit-50"><a href="#"><img src="img/ad1.jpg" alt=""></a></div>
+				<div class="wide-ad bit-50"><a href="#"><img src="img/ad2.jpg" alt=""></a></div>
+			</div>
+		</div>
+	</section>
 </body>
 </html>

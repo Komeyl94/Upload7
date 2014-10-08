@@ -15,9 +15,26 @@
 
 .rss:hover { background-color: #FAA21C; }
 
-html, body { background-color: #F9F9F9; padding: 0; margin: 0; font-family: WMitra; font-size: 18px; direction: rtl; font-align: right; width: 100%; color: #130f30; }
+html, body { background-color: #F9F9F9; padding: 0; margin: 0; font-family: WYekan; font-size: 18px; direction: rtl; font-align: right; width: 100%; color: #130f30; }
 
 ul { list-style: none; }
 ul.inline-list li { display: inline-block; }
 
 a { text-decoration: none; }
+
+header { background: #2c4357; height: 100%; }
+header .logo { float: right; margin-left: 20px; }
+header #main-nav li { display: inline-block; width: 12%; height: 100px; border-left: 1px solid #435a6e; margin-top: 5px; margin-bottom: 5px; position: relative; }
+header #main-nav li:first-child { border-right: 1px solid #435a6e; }
+header #main-nav li:first-child i { font-size: 1.8em; }
+header #main-nav li i { color: #8ca4b9; position: absolute; font-size: 1.5em; right: 45px; top: 16px; }
+header #main-nav li a { color: white; text-align: center; display: block; padding-top: 55px; }
+header .header-bottom { background: #375269; border-bottom: 3px solid #24394c; border-top: 3px solid #24394c; height: 40px; }
+header .header-bottom .socials { float: left; margin-top: 5px; }
+header .header-bottom .socials i { width: 25px; height: 25px; padding-top: 5px; font-size: 0.9em; background: #61788c; border-radius: 50%; text-align: center; color: white; }
+header .header-bottom .ticker-container { float: right; }
+
+.top-ads { height: 80px; }
+.top-ads .wide-ad { float: right; margin-top: 10px; padding-left: 20px; }
+.top-ads .wide-ad img { width: 100%; height: 65px; border-radius: 3px; border: 3px solid #2c4357; }
+.top-ads .wide-ad:last-of-type { padding-left: 0; padding-right: 20px; }

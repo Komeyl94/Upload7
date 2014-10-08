@@ -1,0 +1,79 @@
+header {
+	background: $back-color;
+	height: 100%;
+	.logo {
+		float: right;
+		margin-left: 20px;
+	}
+	#main-nav {
+		li {
+			display: inline-block;
+			width: 12%;
+			height: 100px;
+			border-left: 1px solid #435a6e;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			position: relative;
+			&:first-child {
+				border-right: 1px solid #435a6e;
+				i {
+					font-size: 1.8em;
+				}
+			}
+			i {
+				color: #8ca4b9;
+				position: absolute;
+				font-size: 1.5em;
+				right: 45px;
+				top: 16px;
+			}
+			a {
+				color: white;
+				text-align: center;
+				display: block;
+				padding-top: 55px;
+			}
+		}
+	}
+	.header-bottom {
+		background: $second-color;
+		border-bottom: 3px solid $border-color;
+		border-top: 3px solid $border-color;
+		height: 40px;
+		.socials {
+			float: left;
+			margin-top: 5px;
+			i {
+				width: 25px;
+				height: 25px;
+				padding-top: 5px;
+				font-size: 0.9em;
+				background: #61788c;
+				border-radius: 50%;
+				text-align: center;
+				color: white;
+			}
+		}
+		.ticker-container {
+			float: right;
+		}
+	}
+}
+.top-ads {
+	height: 80px;
+	.wide-ad {
+		float: right;
+		margin-top: 10px;
+		padding-left: 20px;
+		img {
+			width: 100%;
+			height: 65px;
+			border-radius: 3px;
+			border: 3px solid $back-color;
+		}
+		&:last-of-type {
+			padding-left: 0;
+			padding-right: 20px;
+		}
+	}
+}
