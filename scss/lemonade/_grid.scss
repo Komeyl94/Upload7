@@ -7,6 +7,7 @@
 .wrapper {
   margin: 0 auto;
   width: $large;
+  position: relative;
 }
 
 *,
@@ -87,26 +88,21 @@
   }
 }
 
-@media (min-width: $small) and (max-width: $medium) {
+@media (max-width: $medium) {
   .wrapper {
-    width: $small;
+    width: 100%;
   }
 
-  .bit-4, .bit-25,
-  .bit-6,
-  .bit-8,
-  .bit-10,
-  .bit-12 {
-    width: $half;
+  @for $i from $start through $end {
+    .bit-#{$i} {
+      width: $full
+    }
   }
 
-  .bit-1,
-  .bit-2, .bit-50, .bit-75,
-  .bit-3,
-  .bit-5,
-  .bit-7,
-  .bit-9,
-  .bit-11 {
+  .bit-50, 
+  .bit-75,
+  .bit-25,
+  .bit-600 {
     width: $full;
   }
 }
@@ -116,12 +112,13 @@
     width: $medium;
   }
 
-  .bit-2, .bit-50, .bit-75,
+  .bit-2,.bit-600, .bit-50,
   .bit-7 {
     width: $full;
+
   }
 
-  .bit-4, .bit-25,
+  .bit-4,
   .bit-8,
   .bit-10,
   .bit-12 {

@@ -1,10 +1,7 @@
 $back-color: #2c4357;
+$dark-color: #1F3447;
 $second-color: #375269;
 $border-color: #24394c;
-$section-title-color: #41639E;
-$section-title-border: #6E943D;
-$gray: #9E9E9E;
-$white: #F5F5F5;
 $black: #130F30;
 
 @font-face {
@@ -52,6 +49,7 @@ html, body {
 	padding: 0;
 	margin: 0;
 	font-family: WYekan;
+	font-weight: normal !important;
 	font-size: 18px;
 	direction: rtl;
 	font-align: right;
@@ -71,6 +69,6 @@ ul {
 a {
 	text-decoration: none;
 }
-input {
+input, textarea {
 	outline: none;
 }

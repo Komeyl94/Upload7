@@ -2,20 +2,116 @@
 <html lang="fa">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title>آپلود7</title>
+
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>	
+	<script type="text/javascript" src="js/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easy-ticker.min.js"></script>
 
 	<link rel="stylesheet" href="style.css" media="all" />
 	<link rel="stylesheet" href="css/lemonade.css" media="all" />
 	<link rel="stylesheet" href="css/font-awesome.min.css" media="all" />
-	<link rel="stylesheet" href="css/ticker-style.css" />
 
-	<script type="text/javascript" src="js/jquery.ticker.js"></script>
-	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>	
-	<script type="text/javascript" src="js/jquery.easing.min.js"></script>
-		
 	<script type="text/javascript">
-	    $(function () {
-	        $('#js-news').ticker();
+	    $(window).load(function(){
+			var dd = $('.vticker').easyTicker({
+				direction: 'up',
+				speed: 'slow',
+				interval: 1000,
+				height: 'auto',
+				visible: 1,
+				mousePause: 1
+			}).data('easyTicker');
+
+	        $('#upload0 #myfile').change(function(){
+				$('#upload0 #path').val($(this).val());
+			});
+	        $('#upload1 #myfile').change(function(){
+				$('#upload1 #path').val($(this).val());
+			});
+	        $('#upload2 #myfile').change(function(){
+				$('#upload2 #path').val($(this).val());
+			});
+	        $('#upload3 #myfile').change(function(){
+				$('#upload3 #path').val($(this).val());
+			});
+	        $('#upload4 #myfile').change(function(){
+				$('#upload4 #path').val($(this).val());
+			});
+
+			var clonednumber = 0;
+			$(".add-upload-input").on('click',function(){
+				if (clonednumber < 5) {
+					for (c = 1; c < 5; c++) {
+						cssvalue = $("#upload"+c).css("display");
+						if (cssvalue == "none") {
+							$("#upload"+c).css({"display": "block"});
+							break;
+						}
+					}
+					clonednumber++;
+				} 
+				if (clonednumber == 4) {
+					$(".add-upload-input").css({"display": "none"});
+				}
+			});  
+
+			$(".delete").on('click', function() {
+				clonednumber--;
+				$(this).parent().css({"display": "none"});
+				$(".add-upload-input").css({"display": "inline"});
+			});
+
+			var btn = $(".upload-via-link");
+			$(btn).click(function() {
+				if ($(".upload-forms-container").is(":visible")) {
+					$(".upload-forms-container").fadeToggle('300', "linear");
+					$(".upload-via-link-container").fadeToggle('300', "linear");
+					$(this).text("آپلود فایل");
+				} else {
+					$(".upload-forms-container").fadeToggle('300', "linear");
+					$(".upload-via-link-container").fadeToggle('300', "linear");
+					$(this).text("آپلود از لینک");
+				}
+			});	
+			
+            $( ".config" ).click(
+                function( event ){
+
+                    event.preventDefault();
+					var container = $(this).siblings(".properties");
+
+                    if (container.height() == 0){
+                        container.css({"height": "158px", "border": "1px solid #DDD", "margin-top": "5px"});
+                    } else {
+                        container.css({"height": "0", "border": "none", "margin-top": "0"});
+                    }
+                }
+            );
+            var menuIsOpen = false;
+			$('.fa-bars').click(function(event){
+				if (menuIsOpen == false) {
+					$('#main-nav').addClass('menu__open');
+					menuIsOpen = true;
+				} else {
+					$('#main-nav').removeClass('menu__open');
+					menuIsOpen = false;
+				}
+			});   
+			var loginPopUp = false;
+			$('.login_button').click(function(event){
+				if (loginPopUp == false) {
+					$('#login_panel_container').addClass('panel_open');
+					loginPopUp = true;
+				}
+			});
+			$('i.fa-times').click(function(event){
+				if (loginPopUp == true) {
+					$('#login_panel_container').removeClass('panel_open');
+					loginPopUp = false;
+				}
+			});
 	    });
 	</script>
 </head>
@@ -25,12 +121,44 @@
 			<div class="logo">
 				<a href="#"><img src="img/logo.png" alt="آپلود7"></a>
 			</div>
+			<div class="hidden-menu"><i class="fa fa-bars"></i></div>
 			<nav id="main-nav">
 				<ul>
-					<li><i class="fa fa-home"></i><a href="#">صفحه نخست</a></li>
-					<li><i class="fa fa-briefcase"></i><a href="#">درباره ما</a></li>
-					<li><i class="fa fa-pencil-square-o"></i><a href="#">وبلاگ ما</a></li>
-					<li><i class="fa fa-envelope"></i><a href="#">تماس با ما</a></li>
+					<li>
+						<a href="#">
+							<i class="fa fa-home"></i>
+							<span>صفحه نخست</span>
+							<div class="mask"></div>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<i class="fa fa-briefcase"></i>
+							<span>درباره ما</span>
+							<div class="mask"></div>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<i class="fa fa-pencil-square-o"></i>
+							<span>وبلاگ ما</span>
+							<div class="mask"></div>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<i class="fa fa-envelope"></i>
+							<span>تماس با ما</span>
+							<div class="mask"></div>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="login_button">
+							<i class="fa fa-user"></i>
+							<span>ورود</span>
+							<div class="mask"></div>
+						</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -38,12 +166,15 @@
 		<div class="header-bottom">
 			<div class="wrapper">
 				<div class="ticker-container">
-					<ul id="js-news" class="js-hidden">
-					    <li class="news-item"><a href="#">لورم ایپسوم متنی است آزمایشی برای قرار دادن در قسمت اخبار وبلاگ</a></li>
-					    <li class="news-item"><a href="#">لورم ایپسوم متنی است آزمایشی برای قرار دادن در قسمت اخبار وبلاگ</a></li>
-					    <li class="news-item"><a href="#">لورم ایپسوم متنی است آزمایشی برای قرار دادن در قسمت اخبار وبلاگ</a></li>
-					    <li class="news-item"><a href="#">لورم ایپسوم متنی است آزمایشی برای قرار دادن در قسمت اخبار وبلاگ</a></li>
+					<div class="vticker" title="آخرین آخبار وبلاگ : ">
+					<ul>
+						<li class="news-item"><a href="#">لورم ایپسوم متنی است آزمایشی برای قرار دادن در محل های آزمایشی لورم ایپسوم متنی است آزمایشی برای قرار دادن در محل های آزمایشی</a></li>
+						<li class="news-item"><a href="#">لورم ایپسوم متنی است آزمایشی برای قرار دادن در محل های آزمایشی لورم ایپسوم متنی است آزمایشی برای قرار دادن در محل های آزمایشی</a></li>
+						<li class="news-item"><a href="#">لورم ایپسوم متنی است آزمایشی برای قرار دادن در محل های آزمایشی لورم ایپسوم متنی است آزمایشی برای قرار دادن در محل های آزمایشی</a></li>
+						<li class="news-item"><a href="#">لورم ایپسوم متنی است آزمایشی برای قرار دادن در محل های آزمایشی لورم ایپسوم متنی است آزمایشی برای قرار دادن در محل های آزمایشی</a></li>
+						<li class="news-item"><a href="#">لورم ایپسوم متنی است آزمایشی برای قرار دادن در محل های آزمایشی لورم ایپسوم متنی است آزمایشی برای قرار دادن در محل های آزمایشی</a></li>
 					</ul>
+				</div>
 				</div>
 				<div class="socials">
 					<a href="#"><i class="fa fa-facebook"></i></a>
@@ -65,7 +196,7 @@
 		<div class="wrapper">
 			<div class="frame">
 				<div class="container">
-					<a href="#" class="register bit-20">عضویت</a>
+					<a href="#" class="register bit-20"><div class="before"></div><div>عضویت</div></a>
 					<p class="bit-60">با عضویت در آپلود 7 از امکانات ویژه و رایگان برخوردار شوید</p>
 					<span class="bit-25">امکانات ویژه</span>
 				</div>
@@ -74,7 +205,7 @@
 	</section>
 	<div id="body" class="frame">
 		<div class="wrapper">
-			<div class="main-container frame">
+			<section class="main-container frame">
 				<div class="bit-600">
 					<p class="top-text"><i class="fa fa-cogs"></i>برای آپلود میتوانید از ابزار زیر استفاده نمایید</p>
 					<div class="filetypes">
@@ -84,36 +215,237 @@
 							<li><i class="fa fa-file-video-o"></i></li>
 							<li><i class="fa fa-file-audio-o"></i></li>
 							<li><i class="fa fa-file-archive-o"></i></li>
-							<a href="#" class="upload-via-link">آپلود از لینک</a>
+							<a class="upload-via-link">آپلود از لینک</a>
 						</ul>
 					</div>
-					<p class="form" id="upload0">
-						<i class="fa fa-times-circle-o delete"></i>
-					    <input type="text" id="path" />
-						<label class="add-photo-btn">انتخاب فایل<span><input type="file" id="myfile" name="myfile" /></span></label>
-					</p>
-					<div class="add-upload"><i class="fa fa-plus-square"></i><a class="add-upload-input">افزودن فایل جدید</a></div>
+					<div class="upload-forms-container">
+						<p class="form" id="upload0">
+							<i class="fa fa-times-circle-o delete"></i>
+							<i class="fa fa-cog config"></i>
+						    <input type="text" id="path" />
+							<label class="add-photo-btn">انتخاب فایل<span><input type="file" id="myfile" name="myfile" /></span></label>
+							<span class="properties">	
+								<i>
+									<input type="checkbox" value="تصویر خصوصی" id="checkbox11"/>
+									<label for="checkbox11">تصویر خصوصی</label>									
+								</i>
+								<i>	                                      
+									<input type="checkbox" value="ایجاد لینک کوتاه" id="checkbox21"/> 
+									<label for="checkbox21">ایجاد لینک کوتاه</label>                
+								</i>
+								<br>
+									<label id="new_height">ارتفاع</label> 
+									<input type="text" maxlength="4" size="4" class="text_input" id="new_height" name="new_height[]">
+									<label id="new_width">عرض</label> 
+									<input type="text" maxlength="4" size="4" class="text_input" id="new_width" name="new_width[]">
+								<br>
+									<i class="description">در صورتی که شما تنها ارتفاع یا عرض را وارد نمایید سیستم به صورت خودکار به نسبت اندازه ارتفاع یا عرض وارد شده کل تصویر را تغییر اندازه می دهد و در صورتی که هر دو را خالی بگذارید ارتفاع و عرض خود عکس منظور خواهد شد.</i> 
+							</span>
+						</p>
+						<p class="form" id="upload1">
+							<i class="fa fa-times-circle-o delete"></i>
+							<i class="fa fa-cog config"></i>
+						    <input type="text" id="path" />
+							<label class="add-photo-btn">انتخاب فایل<span><input type="file" id="myfile" name="myfile" /></span></label>
+							<span class="properties">		
+								<i>
+									<input type="checkbox" value="تصویر خصوصی" id="checkbox15"/>
+									<label for="checkbox15">تصویر خصوصی</label>									
+								</i>
+								<i>	                                      
+									<input type="checkbox" value="ایجاد لینک کوتاه" id="checkbox25"/> 
+									<label for="checkbox25">ایجاد لینک کوتاه</label>                
+								</i>
+								<br>
+									<label id="new_height">ارتفاع</label> 
+									<input type="text" maxlength="4" size="4" class="text_input" id="new_height" name="new_height[]">
+									<label id="new_width">عرض</label> 
+									<input type="text" maxlength="4" size="4" class="text_input" id="new_width" name="new_width[]">
+								<br>
+									<i class="description">در صورتی که شما تنها ارتفاع یا عرض را وارد نمایید سیستم به صورت خودکار به نسبت اندازه ارتفاع یا عرض وارد شده کل تصویر را تغییر اندازه می دهد و در صورتی که هر دو را خالی بگذارید ارتفاع و عرض خود عکس منظور خواهد شد.</i> 
+							</span>
+						</p>
+						<p class="form" id="upload2">
+							<i class="fa fa-times-circle-o delete"></i>
+							<i class="fa fa-cog config"></i>
+						    <input type="text" id="path" />
+							<label class="add-photo-btn">انتخاب فایل<span><input type="file" id="myfile" name="myfile" /></span></label>
+							<span class="properties">			
+								<i>
+									<input type="checkbox" value="تصویر خصوصی" id="checkbox12"/>
+									<label for="checkbox12">تصویر خصوصی</label>									
+								</i>
+								<i>	                                      
+									<input type="checkbox" value="ایجاد لینک کوتاه" id="checkbox22"/> 
+									<label for="checkbox22">ایجاد لینک کوتاه</label>                
+								</i>
+								<br>
+									<label id="new_height">ارتفاع</label> 
+									<input type="text" maxlength="4" size="4" class="text_input" id="new_height" name="new_height[]">
+									<label id="new_width">عرض</label> 
+									<input type="text" maxlength="4" size="4" class="text_input" id="new_width" name="new_width[]">
+								<br>
+									<i class="description">در صورتی که شما تنها ارتفاع یا عرض را وارد نمایید سیستم به صورت خودکار به نسبت اندازه ارتفاع یا عرض وارد شده کل تصویر را تغییر اندازه می دهد و در صورتی که هر دو را خالی بگذارید ارتفاع و عرض خود عکس منظور خواهد شد.</i> 
+							</span>
+						</p>
+						<p class="form" id="upload3">
+							<i class="fa fa-times-circle-o delete"></i>
+							<i class="fa fa-cog config"></i>
+						    <input type="text" id="path" />
+							<label class="add-photo-btn">انتخاب فایل<span><input type="file" id="myfile" name="myfile" /></span></label>
+							<span class="properties">	
+								<i>
+									<input type="checkbox" value="تصویر خصوصی" id="checkbox13"/>
+									<label for="checkbox13">تصویر خصوصی</label>									
+								</i>
+								<i>	                                      
+									<input type="checkbox" value="ایجاد لینک کوتاه" id="checkbox23"/> 
+									<label for="checkbox23">ایجاد لینک کوتاه</label>                
+								</i>
+								<br>
+									<label id="new_height">ارتفاع</label> 
+									<input type="text" maxlength="4" size="4" class="text_input" id="new_height" name="new_height[]">
+									<label id="new_width">عرض</label> 
+									<input type="text" maxlength="4" size="4" class="text_input" id="new_width" name="new_width[]">
+								<br>
+									<i class="description">در صورتی که شما تنها ارتفاع یا عرض را وارد نمایید سیستم به صورت خودکار به نسبت اندازه ارتفاع یا عرض وارد شده کل تصویر را تغییر اندازه می دهد و در صورتی که هر دو را خالی بگذارید ارتفاع و عرض خود عکس منظور خواهد شد.</i> 
+							</span>
+						</p>
+						<p class="form" id="upload4">
+							<i class="fa fa-times-circle-o delete"></i>
+							<i class="fa fa-cog config"></i>
+						    <input type="text" id="path" />
+							<label class="add-photo-btn">انتخاب فایل<span><input type="file" id="myfile" name="myfile" /></span></label>
+							<span class="properties">		
+								<i>
+									<input type="checkbox" value="تصویر خصوصی" id="checkbox14"/>
+									<label for="checkbox14">تصویر خصوصی</label>									
+								</i>
+								<i>	                                      
+									<input type="checkbox" value="ایجاد لینک کوتاه" id="checkbox24"/> 
+									<label for="checkbox24">ایجاد لینک کوتاه</label>                
+								</i>
+								<br>
+									<label id="new_height">ارتفاع</label> 
+									<input type="text" maxlength="4" size="4" class="text_input" id="new_height" name="new_height[]">
+									<label id="new_width">عرض</label> 
+									<input type="text" maxlength="4" size="4" class="text_input" id="new_width" name="new_width[]">
+								<br>
+									<i class="description">در صورتی که شما تنها ارتفاع یا عرض را وارد نمایید سیستم به صورت خودکار به نسبت اندازه ارتفاع یا عرض وارد شده کل تصویر را تغییر اندازه می دهد و در صورتی که هر دو را خالی بگذارید ارتفاع و عرض خود عکس منظور خواهد شد.</i>
+							</span>
+						</p>
+					</div>
+					<div class="upload-via-link-container">
+						<p class="form" id="upload0">
+						    <input type="text" id="link" />
+						</p>
+					</div>
+					<div class="add-upload"><a class="add-upload-input"><i class="fa fa-plus-square"></i>افزودن فایل جدید</a></div>
+					<div id="upload-button"><a href="#"><i class="fa fa-cloud-upload"></i>آپـلــــــود<i class="fa fa-arrow-up arrow"></i></a></div>
+					<div class="file-rules">
+						<div class="file-formats">
+						<h4>پسوند های مجاز:</h4>
+							<ul class="image">
+								<li>JPEG, </li>
+								<li>JPG, </li>
+								<li>GIF, </li>
+								<li>PNG, </li>
+								<li>PSD,</li>
+								<li>...</li>
+							</ul>
+						</div>
+						<div class="file-size">
+							<h4>حداکثر حجم مجاز:</h4>
+							<span>10 مگابایت</span>
+						</div>
+					</div>
+					<div class="benefits">
+						<h3>مزایای عضویت:</h3>
+						<div class="item">
+							<i class="fa fa-cloud-download"></i>
+							<p>دانلود مستقیم</p>
+						</div>
+						<div class="item">
+							<i class="fa fa-link"></i>
+							<p>آپلود از طریق لینک</p>
+						</div>
+						<div class="item">
+							<i class="fa fa-rocket"></i>
+							<p>آپلود سریع</p>
+						</div>
+						<div class="item">
+							<i class="fa fa-list-alt"></i>
+							<p>مدیریت فایل ها</p>
+						</div>
+						<a href="#" class="register"><div>عضویت</div></a>
+					</div>
+					<div class="upload-rules">
+						<i class="fa fa-exclamation-triangle"></i>
+						<p> آپلود هرگونه فایل غیر اخلاقی و مغایر با قوانین جمهوری اسلامی ایران ممنوع می باشد.</p>
+					</div>
+				</div>
+			</section>
+		</div>
+		<div class="gallery-container">
+			<div class="wrapper">
+				<header class="gallery-header"><i class="fa fa-picture-o"></i>از گالری بی نظیر آپلود 7 دیدن فرمایید</header>
+				<div class="gallery">
+					<div class="item"><a href="#"><i class="fa fa-search"></i><img src="img/item1.jpg" alt=""><div class="mask"></div></a></div>
+					<div class="item"><a href="#"><i class="fa fa-search"></i><img src="img/item2.jpg" alt=""><div class="mask"></div></a></div>
+					<div class="item"><a href="#"><i class="fa fa-search"></i><img src="img/item3.jpg" alt=""><div class="mask"></div></a></div>
+					<div class="item"><a href="#"><i class="fa fa-search"></i><img src="img/item4.jpg" alt=""><div class="mask"></div></a></div>
+					<div class="item"><a href="#"><i class="fa fa-search"></i><img src="img/item5.jpg" alt=""><div class="mask"></div></a></div>
+					<div class="item"><a href="#"><i class="fa fa-search"></i><img src="img/item6.jpg" alt=""><div class="mask"></div></a></div>
+					<div class="item"><a href="#"><i class="fa fa-search"></i><img src="img/item7.jpg" alt=""><div class="mask"></div></a></div>
+					<div class="item"><a href="#"><i class="fa fa-search"></i><img src="img/item8.jpg" alt=""><div class="mask"></div></a></div>
+					<div class="item"><a href="#"><i class="fa fa-search"></i><img src="img/item9.jpg" alt=""><div class="mask"></div></a></div>
+					<div class="item"><a href="#"><i class="fa fa-search"></i><img src="img/item10.jpg" alt=""><div class="mask"></div></a></div>
+					<div class="item"><a href="#"><i class="fa fa-search"></i><img src="img/item11.jpg" alt=""><div class="mask"></div></a></div>
+					<div class="item"><a href="#"><i class="fa fa-search"></i><img src="img/item12.jpg" alt=""><div class="mask"></div></a></div>
+				</div>
+			</div>
+		</div>  <!-- END .gallery-container -->
+	</div> <!--  END #body  -->
+	<footer id="main-footer" class="frame">
+		<div class="top-part frame">
+			<div class="wrapper">
+				<a href="#" class="more-btn"><i class="fa fa-chevron-left"></i>ادامه ...</a>
+			</div>
+		</div>
+		<div class="bottom-part frame">
+			<div class="wrapper">
+				<div class="bit-75">
+					<p class="copy-right">تمامی حقوق این وب سایت متعلق به آپلود 7 بوده و هر گونه کپی برداری غیر مجاز می باشد</p>
+				</div>
+				<div class="bit-25">
+					<div class="designerfa">
+						<a href="http://designerfa.ir" target="_blank"><img src="img/desginerfa.png" alt="طرحی از دیزاینرفا"></a>
+						<span>طرحی از دیزاینرفا</span>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<script>
-	        $('#myfile').change(function(){
-				$('#path').val($(this).val());
-			});
-			var c = 0;
-			var cloned;
-			var clonednumber = 0;
-			$(".add-upload-input").on('click',function(){
-				clonednumber++;
-				if (clonednumber < 5) {
-					cloned = $( '#upload'+ c );
-					$("#upload"+c).clone().attr('id', 'upload'+(++c) ).insertAfter( cloned );
-				}
-			});  
-			$(".delete").on('click', function() {
-				$(this).parent("[id^=upload]").remove();
-			});
-	</script>
+	</footer>
+	<section id="login_panel_container">
+		<section class="login_panel">
+			<form method="post" class="login-form">
+				<header><i class="fa fa-user first"></i><i class="fa fa-user"></i>ورود<i class="fa fa-times"></i></header>		
+				<p>
+					<label for="username" placeholder="نام کاربری خود را وارد کنید">نام کاربری</label>
+					<input type="text">
+				</p>
+				<p>
+					<label for="password" placeholder="گذرواژه خود را وارد کنید">گذرواژه</label>
+					<input type="password">
+				</p>
+				<p>
+					<i class="fa fa-key"></i>
+					<input type="submit" value="ورود">
+				</p>
+				<a href="#" class="forget_password"><i class="fa fa-refresh"></i>بازیابی رمز عبور</a>
+				<a href="#" class="register"><i class="fa fa-sign-in"></i>عضویت</a>
+			</form>
+		</section>
+	</section>
 </body>
 </html>
